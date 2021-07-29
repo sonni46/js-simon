@@ -13,22 +13,7 @@ attenzione();
 timer();
 console.log(numeriPc)
 console.log(numUtente)
-giuso = 0;
-sbagliato = 0;
-for (let i = 0 ; i < numUtente.length; i++){
-    for(let j = 0; j < numeriPc.length; j++){
-        if(numUtente[i] == numeriPc[j]){
-            giuso += i;
-        }
-        else
-        {
-            sbagliato += j;
-        }
-    }
-}
-
-console.log("presi " + giuso + " sbagliati " + sbagliato);
-
+giusto = [];
 
 // function// function// function// function// function// function
 
@@ -44,12 +29,16 @@ function inserisci() {
         do {
             utente += parseInt(prompt("inserisci numeri"));
         }while(numUtente.includes(utente))
-        numUtente.push(utente);
-    } 
+            numUtente.push(utente);
+        if (numeriPc.includes(utente)){
+            giusto.push(utente) 
+        }
+    }
+    console.log("Ne hai presi " + giusto.length);
 }
 
 function timer () {
-    setTimeout(inserisci,2000);
+    setTimeout(inserisci,30000);
 }
 
 function numGen() {
